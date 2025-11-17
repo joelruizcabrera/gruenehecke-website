@@ -47,20 +47,20 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Server-side only
-    smtpHost: process.env.SMTP_HOST || 'smtp.gmail.com',
+    smtpHost: process.env.SMTP_HOST || 'smtp.gruenehecke.com',
     smtpPort: process.env.SMTP_PORT || '587',
     smtpUser: process.env.SMTP_USER || '',
     smtpPass: process.env.SMTP_PASS || '',
-    emailFrom: process.env.EMAIL_FROM || 'noreply@gruenehecke.de',
-    emailTo: process.env.EMAIL_TO || 'info@gruenehecke.de',
+    emailFrom: process.env.EMAIL_FROM || 'noreply@gruenehecke.cpm',
+    emailTo: process.env.EMAIL_TO || 'info@gruenehecke.com',
     
     // Public keys that are exposed to the client
     public: {
-      siteUrl: process.env.SITE_URL || 'https://gruenehecke.de'
+      siteUrl: process.env.SITE_URL || 'https://gruenehecke.com'
     }
   },
 
   nitro: {
-    preset: 'node-server'
+    preset: 'vercel'
   }
 })
