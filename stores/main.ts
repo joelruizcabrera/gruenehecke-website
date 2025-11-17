@@ -6,7 +6,7 @@ export interface Location {
   address: string
   city: string
   zipCode: string
-  phone: string
+  phone?: string
   email: string
   coordinates: {
     lat: number
@@ -43,52 +43,28 @@ export const useMainStore = defineStore('main', {
     locations: [
       {
         id: '1',
-        name: 'Grüne Hecke Zentrum',
-        address: 'Musterstraße 123',
-        city: 'Berlin',
-        zipCode: '10115',
-        phone: '+49 30 12345678',
-        email: 'zentrum@gruenehecke.de',
+        name: 'Grüne Hecke Osnabrück',
+        address: 'Ellerstraße 94',
+        city: 'Osnabrück',
+        zipCode: '49088',
+        phone: null,
+        email: 'info@gruenehecke.com',
         coordinates: {
           lat: 52.520008,
           lng: 13.404954
         },
         openingHours: {
-          'Montag': '12:00 - 22:00',
-          'Dienstag': '12:00 - 22:00',
-          'Mittwoch': '12:00 - 22:00',
-          'Donnerstag': '12:00 - 23:00',
-          'Freitag': '12:00 - 00:00',
-          'Samstag': '14:00 - 00:00',
-          'Sonntag': '14:00 - 22:00'
+          'Montag': 'Geschlossen',
+          'Dienstag': '18:00 - 02:00',
+          'Mittwoch': '18:00 - 02:00',
+          'Donnerstag': '18:00 - 02:00',
+          'Freitag': '18:00 - 02:00',
+          'Samstag': '14:00 - 02:00',
+          'Sonntag': '14:00 - 02:00'
         },
-        features: ['Lounge-Bereich', 'Außenterrasse', 'WLAN', 'Getränke & Snacks'],
+        features: ['Lounge-Bereich', 'Rosin-Presse', 'Getränke & Snacks'],
         image: '/images/location1.jpg'
       },
-      {
-        id: '2',
-        name: 'Grüne Hecke Nord',
-        address: 'Nordweg 45',
-        city: 'Hamburg',
-        zipCode: '20095',
-        phone: '+49 40 98765432',
-        email: 'nord@gruenehecke.de',
-        coordinates: {
-          lat: 53.551086,
-          lng: 9.993682
-        },
-        openingHours: {
-          'Montag': '13:00 - 21:00',
-          'Dienstag': '13:00 - 21:00',
-          'Mittwoch': '13:00 - 21:00',
-          'Donnerstag': '13:00 - 22:00',
-          'Freitag': '13:00 - 23:00',
-          'Samstag': '15:00 - 23:00',
-          'Sonntag': 'Geschlossen'
-        },
-        features: ['Gemütliche Atmosphäre', 'Events', 'WLAN', 'Getränke & Snacks'],
-        image: '/images/location2.jpg'
-      }
     ] as Location[],
     
     jobPostings: [

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h3 class="footer-title inter-italic">GRÜNE HECKE</h3>
+          <NuxtImg src="/images/logo.svg" width="150"></NuxtImg>
           <p class="footer-description">
             Cannabis Café & Lounge ohne Verkauf und Handel mit Cannabis.
           </p>

@@ -13,7 +13,7 @@
           <span class="info-text">{{ location.address }}, {{ location.zipCode }} {{ location.city }}</span>
         </div>
         
-        <div class="info-item">
+        <div class="info-item" v-if="location.phone">
           <span class="info-icon">📞</span>
           <a :href="`tel:${location.phone.replace(/\s/g, '')}`" class="info-link">{{ location.phone }}</a>
         </div>

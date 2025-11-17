@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-content">
         <NuxtLink to="/" class="logo">
-          <span class="logo-text inter-italic">GRÜNE HECKE</span>
+          <NuxtImg src="/images/logo.svg" width="100"></NuxtImg>
         </NuxtLink>
         
         <nav class="nav-desktop" :class="{ 'active': mobileMenuOpen }">

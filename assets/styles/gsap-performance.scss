@@ -1,0 +1,68 @@
+/* 🚀 GSAP Performance-Optimierungen */
+
+/* Verhindert initiale Opacity-Probleme */
+.feature-card,
+.instagram-post,
+.fade-in-element,
+.benefit-card,
+.job-card {
+  /* Elemente sind standardmäßig sichtbar */
+  opacity: 1 !important;
+  
+  /* GPU-Beschleunigung für bessere Performance */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  
+  /* Smooth Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimierung für scrollbare Container */
+.home-page,
+.jobs-page,
+.locations-page {
+  /* Besseres Scroll-Verhalten */
+  -webkit-overflow-scrolling: touch;
+  
+  /* Hardware-Beschleunigung */
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Verhindert Layout Shifts während Animationen */
+.about-section,
+.jobs-section,
+.locations-section {
+  contain: layout style paint;
+}
+
+/* Entfernt will-change nach Animation (wird von clearProps übernommen) */
+.gsap-animated {
+  will-change: auto;
+}
+
+/* Fallback für Browser ohne GSAP */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .instagram-post,
+  .fade-in-element,
+  .benefit-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Loading State - verhindert Flash of Invisible Content */
+html.loading {
+  .feature-card,
+  .instagram-post,
+  .fade-in-element,
+  .benefit-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

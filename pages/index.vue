@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useMainStore } from '~/stores/main'
@@ -126,54 +126,84 @@ const features = [
 ]
 
 onMounted(() => {
-  // Hero Animation
-  if (heroRef.value) {
-    gsap.from(heroRef.value.children, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power3.out'
-    })
-  }
-
-  // About Section Animation
-  if (aboutRef.value) {
-    gsap.from(aboutRef.value, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: aboutRef.value,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
-    })
-  }
-
-  // Feature Cards Animation
-  gsap.from('.feature-card', {
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    stagger: 0.15,
-    scrollTrigger: {
-      trigger: '.about-features',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+  // Warte bis DOM vollständig geladen ist
+  nextTick(() => {
+    // Hero Animation mit optimierten Einstellungen
+    if (heroRef.value) {
+      gsap.from(heroRef.value.children, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        force3D: true, // GPU-Beschleunigung
+        clearProps: 'all', // Entfernt Inline-Styles
+        onComplete: () => {
+          // Entfernt will-change nach Animation
+          if (heroRef.value) {
+            Array.from(heroRef.value.children).forEach(child => {
+              (child as HTMLElement).style.willChange = 'auto'
+            })
+          }
+        }
+      })
     }
-  })
 
-  // Instagram posts animation
-  gsap.from('.instagram-post', {
-    opacity: 0,
-    scale: 0.9,
-    duration: 0.5,
-    stagger: 0.1,
-    scrollTrigger: {
-      trigger: '.instagram-grid',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+    // About Section Animation - nur wenn Element sichtbar
+    if (aboutRef.value) {
+      gsap.from(aboutRef.value, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        force3D: true,
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: aboutRef.value,
+          start: 'top 85%',
+          once: true, // Nur einmal abspielen
+          fastScrollEnd: true,
+        }
+      })
+    }
+
+    // Feature Cards Animation mit besserer Performance
+    const featureCards = document.querySelectorAll('.feature-card')
+    if (featureCards.length > 0) {
+      gsap.from(featureCards, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power2.out',
+        force3D: true,
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: '.about-features',
+          start: 'top 85%',
+          once: true,
+          fastScrollEnd: true,
+        }
+      })
+    }
+
+    // Instagram posts animation mit optimierten Einstellungen
+    const instagramPosts = document.querySelectorAll('.instagram-post')
+    if (instagramPosts.length > 0) {
+      gsap.from(instagramPosts, {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.7)',
+        force3D: true,
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: '.instagram-grid',
+          start: 'top 85%',
+          once: true,
+          fastScrollEnd: true,
+        }
+      })
     }
   })
 })

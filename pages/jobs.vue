@@ -77,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useMainStore } from '~/stores/main'
@@ -139,30 +139,51 @@ const formatDate = (dateString: string): string => {
 }
 
 onMounted(() => {
-  // Animate job cards
-  gsap.from('.fade-in-element', {
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    stagger: 0.2,
-    scrollTrigger: {
-      trigger: '.jobs-list',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+  nextTick(() => {
+    // Animate job cards
+    const fadeElements = document.querySelectorAll('.fade-in-element')
+    if (fadeElements.length > 0) {
+      gsap.from(fadeElements, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: 'power2.out',
+        force3D: true,
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: '.jobs-list',
+          start: 'top 85%',
+          once: true,
+          fastScrollEnd: true,
+        }
+      })
     }
-  })
 
-  // Animate benefit cards
-  gsap.from('.benefit-card', {
-    opacity: 0,
-    y: 30,
-    duration: 0.6,
-    stagger: 0.15,
-    scrollTrigger: {
-      trigger: '.benefits-grid',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
+    // Animate benefit cards
+    const benefitCards = document.querySelectorAll('.benefit-card')
+    if (benefitCards.length > 0) {
+      gsap.from(benefitCards, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power2.out',
+        force3D: true,
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: '.benefits-grid',
+          start: 'top 85%',
+          once: true,
+          fastScrollEnd: true,
+        }
+      })
     }
+
+    // Refresh ScrollTrigger
+    setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 100)
   })
 })
 </script>
