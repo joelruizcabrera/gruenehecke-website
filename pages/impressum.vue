@@ -11,38 +11,33 @@
         <div class="content-box card">
           <h2>Angaben gemäß § 5 TMG</h2>
           <p>
-            Grüne Hecke GmbH<br>
-            Musterstraße 123<br>
-            10115 Berlin
+            GRÜNE HECKE<br>
+            Grüner Daumen Osnabrück e.V.<br>
+            Am Speicher 1<br>
+            49090 Osnabrück
           </p>
 
-          <h3>Vertreten durch:</h3>
-          <p>Geschäftsführer: Max Mustermann</p>
+          <h3>Vertreten durch den Vorstand:</h3>
+          <p>Joel Schwegmann, Leonardo Swadzba</p>
 
           <h3>Kontakt:</h3>
           <p>
-            Telefon: +49 30 12345678<br>
-            E-Mail: info@gruenehecke.de
+            E-Mail: info@gruenehecke.com
           </p>
 
           <h3>Registereintrag:</h3>
           <p>
-            Eintragung im Handelsregister<br>
-            Registergericht: Amtsgericht Berlin<br>
-            Registernummer: HRB 123456
-          </p>
-
-          <h3>Umsatzsteuer-ID:</h3>
-          <p>
-            Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
-            DE123456789
+            Eintragung im Vereinsregister<br>
+            Registergericht: Amtsgericht Osnabrück<br>
+            Registernummer: VR 202580
           </p>
 
           <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h3>
           <p>
-            Max Mustermann<br>
-            Musterstraße 123<br>
-            10115 Berlin
+            Grüner Daumen Invest UG (haftungsbeschränkt)<br>
+            Joel Schwegmann<br>
+            Am Speicher 1<br>
+            49090 Osnabrück
           </p>
 
           <h3>EU-Streitschlichtung</h3>

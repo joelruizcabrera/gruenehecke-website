@@ -5,7 +5,8 @@
       <div class="container">
         <div class="hero-content" ref="heroRef">
           <h1 class="hero-title">
-            <span class="inter-italic">{{ store.siteSettings.heroTitle }}</span>
+            <NuxtImg width="400" src="/images/logo.svg"></NuxtImg>
+            <span class="inter-italic" style="display: none">{{ store.siteSettings.heroTitle }}</span>
           </h1>
           <p class="hero-subtitle">{{ store.siteSettings.heroSubtitle }}</p>
           <p class="hero-description">{{ store.siteSettings.heroDescription }}</p>

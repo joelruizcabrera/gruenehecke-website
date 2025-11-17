@@ -9,6 +9,7 @@
         <nav class="nav-desktop" :class="{ 'active': mobileMenuOpen }">
           <NuxtLink to="/" class="nav-link" @click="closeMobileMenu">Home</NuxtLink>
           <NuxtLink to="/standorte" class="nav-link" @click="closeMobileMenu">Standorte</NuxtLink>
+          <NuxtLink to="/menu" class="nav-link" @click="closeMobileMenu">Menü</NuxtLink>
           <NuxtLink to="/jobs" class="nav-link" @click="closeMobileMenu">Jobs</NuxtLink>
           <NuxtLink to="/kontakt" class="nav-link" @click="closeMobileMenu">Kontakt</NuxtLink>
         </nav>
