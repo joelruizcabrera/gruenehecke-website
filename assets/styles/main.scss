@@ -1,3 +1,5 @@
+@use 'gsap-performance';
+
 // Variables
 $primary-green: #1E6635;
 $light-green: #92C13E;
@@ -226,5 +228,3 @@ p {
 .fade-in {
   animation: fadeIn 0.6s ease;
 }
-
-@import './gsap-performance.scss';

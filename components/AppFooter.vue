@@ -25,7 +25,7 @@
             <a :href="`mailto:${store.siteSettings.contactEmail}`" class="footer-link">
               {{ store.siteSettings.contactEmail }}
             </a>
-            <a :href="`tel:${store.siteSettings.contactPhone.replace(/\s/g, '')}`" class="footer-link">
+            <a v-if="store.siteSettings.contactPhone" :href="`tel:${store.siteSettings.contactPhone.replace(/\s/g, '')}`" class="footer-link">
               {{ store.siteSettings.contactPhone }}
             </a>
           </div>

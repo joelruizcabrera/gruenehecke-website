@@ -29,7 +29,7 @@
 
               <div class="contact-item">
                 <div class="contact-icon">📞</div>
-                <div>
+                <div v-if="store.siteSettings.contactPhone">
                   <h3 class="contact-label">Telefon</h3>
                   <a :href="`tel:${store.siteSettings.contactPhone.replace(/\s/g, '')}`" class="contact-link">
                     {{ store.siteSettings.contactPhone }}
